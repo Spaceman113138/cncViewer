@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcyu5extvf6j"]
+
+[ext_resource type="Script" path="res://stock.gd" id="1_iwskd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08m6t"]
+albedo_color = Color(1, 0, 0.0823529, 1)
+
+[node name="Stock" type="Node3D"]
+script = ExtResource("1_iwskd")
+
+[node name="mesh" type="CSGBox3D" parent="."]
+layers = 3
+material = SubResource("StandardMaterial3D_08m6t")
+
+[node name="csgMeshes" type="CSGCombiner3D" parent="mesh"]
+operation = 2
+calculate_tangents = false

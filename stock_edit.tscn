@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccrtgonwfw37h"]
+
+[ext_resource type="Script" path="res://stock_edit.gd" id="1_7vhwp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45tep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf1c3"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="stockEdit" type="Control"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_7vhwp")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 0
+grow_vertical = 2
+columns = 2
+
+[node name="xLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "X: "
+label_settings = SubResource("LabelSettings_45tep")
+
+[node name="xEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="yLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Y: "
+
+[node name="yEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="zLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Z: "
+
+[node name="zEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="xOffsetLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "X Offset: "
+label_settings = SubResource("LabelSettings_45tep")
+
+[node name="xOffsetEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="yOffsetLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Y Offset: "
+
+[node name="yOffsetEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="zOffsetLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Z Offset: "
+
+[node name="zOffsetEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -1120.0
+offset_top = 30.0
+offset_right = -822.0
+offset_bottom = 606.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kf1c3")
+
+[node name="ColorPicker" type="ColorPicker" parent="PanelContainer"]
+layout_mode = 2
+
+[connection signal="text_changed" from="GridContainer/xEdit" to="." method="_on_x_edit_text_changed"]
+[connection signal="text_changed" from="GridContainer/yEdit" to="." method="_on_y_edit_text_changed"]
+[connection signal="text_changed" from="GridContainer/zEdit" to="." method="_on_z_edit_text_changed"]
+[connection signal="text_changed" from="GridContainer/xOffsetEdit" to="." method="_on_x_offset_edit_text_changed"]
+[connection signal="text_changed" from="GridContainer/yOffsetEdit" to="." method="_on_y_offset_edit_text_changed"]
+[connection signal="text_changed" from="GridContainer/zOffsetEdit" to="." method="_on_z_offset_edit_text_changed"]
+[connection signal="color_changed" from="PanelContainer/ColorPicker" to="." method="_on_color_picker_color_changed"]

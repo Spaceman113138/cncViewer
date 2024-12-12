@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8bjeg3x16c8i"]
+
+[ext_resource type="Script" path="res://gui.gd" id="1_b8ktk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp5j4"]
+bg_color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[sub_resource type="Theme" id="Theme_gjwp7"]
+Panel/styles/panel = SubResource("StyleBoxFlat_tp5j4")
+
+[node name="HSplitContainer" type="HSplitContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b8ktk")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme = SubResource("Theme_gjwp7")
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter G-code here"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="test code" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST CODE"
+
+[node name="edit stock" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Edit Stock"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/test code" to="." method="_on_test_code_pressed"]
